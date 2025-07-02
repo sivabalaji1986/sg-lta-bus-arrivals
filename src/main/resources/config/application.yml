@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: sg-lta-bus-arrivals
+  devtools:
+    restart:
+      enabled: true
+
+server:
+  port: 8688
+  servlet:
+    contextPath: /api
+
+sg-lta:
+  api:
+    url: https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival
+    key: ${LTA_API_KEY}
