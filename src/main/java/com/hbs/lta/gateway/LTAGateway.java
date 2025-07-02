@@ -1,6 +1,7 @@
 package com.hbs.lta.gateway;
 
 import com.hbs.lta.model.LTABusStopResponse;
+import com.hbs.lta.util.LTAConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,14 +35,14 @@ public class LTAGateway {
             logger.info("Calling LTA API for BusStopCode: {} & serviceNo: {}", busStopCode, serviceNo);
 
             HttpHeaders headers = new HttpHeaders();
-            headers.set("AccountKey", apiKey);
+            headers.set(LTAConstants.LTA_ACCOUNT_KEY, apiKey);
             headers.setAccept(List.of(MediaType.APPLICATION_JSON));
 
             HttpEntity<Void> entity = new HttpEntity<>(headers);
 
             URI uri = UriComponentsBuilder.fromHttpUrl(apiUrl)
-                    .queryParam("BusStopCode", busStopCode)
-                    .queryParam("ServiceNo", serviceNo)
+                    .queryParam(LTAConstants.LTA_BUS_STOP_CODE, busStopCode)
+                    .queryParam(LTAConstants.LTA_SERVICE_NO, serviceNo)
                     .build()
                     .toUri();
 
