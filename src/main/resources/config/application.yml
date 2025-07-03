@@ -14,3 +14,12 @@ sg-lta:
   api:
     url: https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival
     key: ${LTA_API_KEY}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html

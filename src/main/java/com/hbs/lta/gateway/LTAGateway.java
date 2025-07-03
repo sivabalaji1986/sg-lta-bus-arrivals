@@ -51,7 +51,7 @@ public class LTAGateway {
                     entity,
                     LTABusStopResponse.class
             );
-            
+
             logger.info("LTA Response: {}", response.getBody());
             return response.getBody();
         } catch (Exception exception) {
