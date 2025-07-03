@@ -1,0 +1,116 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8688/api",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Bus Arrivals",
+      "description": "Get real-time bus timings"
+    }
+  ],
+  "paths": {
+    "/bus-arrivals": {
+      "get": {
+        "tags": [
+          "Bus Arrivals"
+        ],
+        "summary": "Get bus timings by stop and service number",
+        "operationId": "getBusStopTimings",
+        "parameters": [
+          {
+            "name": "busStopCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "serviceNo",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/LTABusStopResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LTABusStopResponse": {
+        "type": "object",
+        "properties": {
+          "BusStopCode": {
+            "type": "string"
+          },
+          "Services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LTAService"
+            }
+          }
+        }
+      },
+      "LTANextBus": {
+        "type": "object",
+        "properties": {
+          "EstimatedArrival": {
+            "type": "string"
+          },
+          "VisitNumber": {
+            "type": "string"
+          },
+          "Load": {
+            "type": "string"
+          },
+          "Feature": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string"
+          }
+        }
+      },
+      "LTAService": {
+        "type": "object",
+        "properties": {
+          "ServiceNo": {
+            "type": "string"
+          },
+          "NextBus": {
+            "$ref": "#/components/schemas/LTANextBus"
+          },
+          "NextBus2": {
+            "$ref": "#/components/schemas/LTANextBus"
+          },
+          "NextBus3": {
+            "$ref": "#/components/schemas/LTANextBus"
+          }
+        }
+      }
+    }
+  }
+}
