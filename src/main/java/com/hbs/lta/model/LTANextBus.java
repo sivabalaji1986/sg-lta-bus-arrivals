@@ -21,40 +21,19 @@ public class LTANextBus {
     @JsonProperty("EstimatedArrival")
     private String EstimatedArrival;
 
-    @JsonIgnore
-    @JsonProperty("Latitude")
-    private String Latitude;
-
-    @JsonIgnore
-    @JsonProperty("Longitude")
-    private String Longitude;
-
     @Schema(description = "Visit number of the bus at this stop")
     @JsonProperty("VisitNumber")
     private String VisitNumber;
 
-    @Schema(description = """
-            Passenger load:
-            - SEA: Seats Available
-            - SDA: Standing Available
-            - LSD: Limited Standing
-            """)
+    @Schema(description = "Passenger load: SEA = Seats Available, SDA = Standing Available, LSD = Limited Standing")
     @JsonProperty("Load")
     private String Load;
 
-    @Schema(description = """
-            Bus feature:
-            - WAB: Wheelchair Accessible Bus
-            """)
+    @Schema(description = "Bus feature: WAB = Wheelchair Accessible Bus")
     @JsonProperty("Feature")
     private String Feature;
 
-    @Schema(description = """
-            Bus type:
-            - SD: Single Deck
-            - DD: Double Deck
-            """)
+    @Schema(description = "Bus type: SD = Single Deck, DD = Double Deck")
     @JsonProperty("Type")
     private String Type;
-
 }
