@@ -23,3 +23,19 @@ springdoc:
       enabled: true
   swagger-ui:
     path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  show-actuator: false
+
+openapi:
+  server-url: http://localhost:8688/api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health  # Only expose /actuator/health
+  endpoint:
+    health:
+      show-details: never

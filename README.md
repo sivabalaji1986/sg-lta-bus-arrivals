@@ -12,5 +12,7 @@ http://localhost:8688/api/v3/api-docs.yaml
 
 # To Access the Swagger UI
 http://localhost:8688/api/swagger-ui/index.html
+![Swagger.png](resources/Swagger.png)
 
-![Screenshot 2025-07-03 at 9.59.27 AM.png](../../../../../var/folders/9z/rnqs9fh56r711rmvdrv2vx780000gn/T/TemporaryItems/NSIRD_screencaptureui_vWMZJX/Screenshot%202025-07-03%20at%209.59.27%E2%80%AFAM.png)
+# To access health check URL
+http://localhost:8688/api/actuator/health
