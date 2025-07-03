@@ -34,25 +34,25 @@ public class LTAGateway {
         try {
             logger.info("Calling LTA API for BusStopCode: {} & serviceNo: {}", busStopCode, serviceNo);
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.set(LTAConstants.LTA_ACCOUNT_KEY, apiKey);
-            headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-
-            HttpEntity<Void> entity = new HttpEntity<>(headers);
-
             URI uri = UriComponentsBuilder.fromHttpUrl(apiUrl)
                     .queryParam(LTAConstants.LTA_BUS_STOP_CODE, busStopCode)
                     .queryParam(LTAConstants.LTA_SERVICE_NO, serviceNo)
                     .build()
                     .toUri();
 
+            HttpHeaders headers = new HttpHeaders();
+            headers.set(LTAConstants.LTA_ACCOUNT_KEY, apiKey);
+            headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+
+            HttpEntity<Void> entity = new HttpEntity<>(headers);
             ResponseEntity<LTABusStopResponse> response = restTemplate.exchange(
                     uri,
                     HttpMethod.GET,
                     entity,
                     LTABusStopResponse.class
             );
-
+            
+            logger.info("LTA Response: {}", response.getBody());
             return response.getBody();
         } catch (Exception exception) {
             logger.error("Error while calling LTA Bus Arrival API - {}", exception.getMessage());
