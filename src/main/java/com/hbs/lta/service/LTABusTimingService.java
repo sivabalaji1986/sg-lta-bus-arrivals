@@ -18,7 +18,7 @@ public class LTABusTimingService {
         this.ltaGateway = ltaGateway;
     }
 
-    public LTABusStopResponse getBusStopTimings(int busStopCode, int serviceNo){
+    public LTABusStopResponse getBusStopTimings(int busStopCode, String serviceNo){
         logger.info("getBusStopTimings BusStopCode: {} & serviceNo: {}", busStopCode, serviceNo);
 
         LTABusStopResponse ltaBusStopResponse = ltaGateway.getBusTimingsInBusStop(busStopCode, serviceNo);

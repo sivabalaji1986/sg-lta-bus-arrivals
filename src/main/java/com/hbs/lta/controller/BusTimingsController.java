@@ -18,7 +18,7 @@ public class BusTimingsController {
     }
 
     @GetMapping
-    public LTABusStopResponse getBusStopTimings(@RequestParam(name = "busStopNo") int busStopNumber, @RequestParam(name = "busNo") int busNumber) {
+    public LTABusStopResponse getBusStopTimings(@RequestParam(name = "busStopNo") int busStopNumber, @RequestParam(name = "busNo") String busNumber) {
         return ltaBusTimingService.getBusStopTimings(busStopNumber, busNumber);
     }
 }

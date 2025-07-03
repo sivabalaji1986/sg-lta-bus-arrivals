@@ -30,7 +30,7 @@ public class LTAGateway {
         this.restTemplate = restTemplate;
     }
 
-    public LTABusStopResponse getBusTimingsInBusStop(int busStopCode, int serviceNo) {
+    public LTABusStopResponse getBusTimingsInBusStop(int busStopCode, String serviceNo) {
         try {
             logger.info("Calling LTA API for BusStopCode: {} & serviceNo: {}", busStopCode, serviceNo);
 
