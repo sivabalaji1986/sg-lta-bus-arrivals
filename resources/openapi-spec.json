@@ -76,21 +76,27 @@
       },
       "LTANextBus": {
         "type": "object",
+        "description": "Bus arrival timing details",
         "properties": {
           "EstimatedArrival": {
-            "type": "string"
+            "type": "string",
+            "description": "Estimated arrival time in ISO 8601 format"
           },
           "VisitNumber": {
-            "type": "string"
+            "type": "string",
+            "description": "Visit number of the bus at this stop"
           },
           "Load": {
-            "type": "string"
+            "type": "string",
+            "description": "Passenger load:\n- SEA: Seats Available\n- SDA: Standing Available\n- LSD: Limited Standing\n"
           },
           "Feature": {
-            "type": "string"
+            "type": "string",
+            "description": "Bus feature:\n- WAB: Wheelchair Accessible Bus\n"
           },
           "Type": {
-            "type": "string"
+            "type": "string",
+            "description": "Bus type:\n- SD: Single Deck\n- DD: Double Deck\n"
           }
         }
       },
