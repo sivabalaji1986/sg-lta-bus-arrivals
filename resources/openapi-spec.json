@@ -62,12 +62,15 @@
     "schemas": {
       "LTABusStopResponse": {
         "type": "object",
+        "description": "Response containing real-time arrival info for a specific bus stop",
         "properties": {
           "BusStopCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Bus stop code"
           },
           "Services": {
             "type": "array",
+            "description": "List of available bus services at this stop",
             "items": {
               "$ref": "#/components/schemas/LTAService"
             }
@@ -88,32 +91,37 @@
           },
           "Load": {
             "type": "string",
-            "description": "Passenger load:\n- SEA: Seats Available\n- SDA: Standing Available\n- LSD: Limited Standing\n"
+            "description": "Passenger load: SEA = Seats Available, SDA = Standing Available, LSD = Limited Standing"
           },
           "Feature": {
             "type": "string",
-            "description": "Bus feature:\n- WAB: Wheelchair Accessible Bus\n"
+            "description": "Bus feature: WAB = Wheelchair Accessible Bus"
           },
           "Type": {
             "type": "string",
-            "description": "Bus type:\n- SD: Single Deck\n- DD: Double Deck\n"
+            "description": "Bus type: SD = Single Deck, DD = Double Deck"
           }
         }
       },
       "LTAService": {
         "type": "object",
+        "description": "Bus service details with upcoming arrivals",
         "properties": {
           "ServiceNo": {
-            "type": "string"
+            "type": "string",
+            "description": "Bus service number"
           },
           "NextBus": {
-            "$ref": "#/components/schemas/LTANextBus"
+            "$ref": "#/components/schemas/LTANextBus",
+            "description": "Next arriving bus for the service"
           },
           "NextBus2": {
-            "$ref": "#/components/schemas/LTANextBus"
+            "$ref": "#/components/schemas/LTANextBus",
+            "description": "Second arriving bus for the service"
           },
           "NextBus3": {
-            "$ref": "#/components/schemas/LTANextBus"
+            "$ref": "#/components/schemas/LTANextBus",
+            "description": "Third arriving bus for the service"
           }
         }
       }
