@@ -1,8 +1,10 @@
-# SG LTA Bus Arrivals API
-This Spring Boot project fetches real-time bus arrival data from Singapore's LTA Datamall API and exposes it through clean REST endpoints. It is integrated with OpenAPI (via SpringDoc) and supports AI MCP (Model Configuration Protocol) integration.
+This project is part of a multi-service architecture that enables an AI agent (such as Claude Desktop) to fetch real-time bus arrival timings from the LTA DataMall via a clean MCP abstraction.
+
+- **`sg-lta-mcp-server`**: Exposes MCP tools via the Spring AI MCP server and delegates bus arrival requests to a downstream service using Feign.
+- **`sg-lta-bus-arrivals`**: A standalone Spring Boot service that connects to the actual LTA Datamall API and returns real-time bus arrival information.
+
 
 ## Features
-
 - `/api/bus-arrivals` endpoint to fetch upcoming bus timings by stop and service
 - Integration with [LTA Datamall API](https://datamall.lta.gov.sg/)
 - `RestTemplate`-based HTTP client
@@ -16,7 +18,7 @@ This Spring Boot project fetches real-time bus arrival data from Singapore's LTA
 
 ## 📦 API Usage
 
-**GET /api/bus-arrivals?busStopCode=96129&serviceNo=12**
+**GET /api/bus-arrivals?busStopCode=96371&serviceNo=20**
 
 Returns:
 ```json
