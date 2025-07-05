@@ -39,7 +39,7 @@ Returns:
 ```
 
 # To Run the Application
-java -DLTA_API_KEY=your-api-key -jar sg-lta-bus-arrivals-1.0.0-SNAPSHOT.jar
+java -DLTA_API_KEY=your-api-key -jar sg-lta-bus-arrivals-1.0.0.jar
 
 # To Access the openAPI spec
 http://localhost:8688/api/v3/api-docs
